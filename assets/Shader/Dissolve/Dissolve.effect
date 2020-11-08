@@ -1,0 +1,72 @@
+
+%{
+  techniques: [
+    {
+      passes: [
+        {
+          vert: vs
+          frag: fs
+          cullMode: none
+          blend: true
+        }
+      ]
+      layer: 0
+    }
+  ]
+  properties: {
+    texture: {
+      type: sampler2D
+      value: null
+    }
+    color: {
+      type: color4
+      displayName:'溶解颜色'
+      value: [0.9, 0.6, 0.3, 1]
+    }
+  }
+%}
+
+%% vs {
+
+  precision highp float;
+  uniform mat4 cc_matViewProj;
+  attribute vec3 a_position;
+  attribute vec2 a_uv0;
+  varying vec2 uv0;
+  void main () {
+      vec4 pos = cc_matViewProj * vec4(a_position, 1);
+      gl_Position = pos;
+      uv0 = a_uv0;
+  }
+
+}
+
+%% fs {
+// float低精度
+    precision lowp float;
+// 贴图采样器，来自于v2f管线
+    uniform sampler2D texture;
+    // 溶解时间，外界属性
+    uniform float time;
+    uniform vec4 color;
+    	// 当前点uv
+    varying vec2 uv0;
+
+  // 主方法
+    void main()
+    {
+        vec4 c = texture2D(texture,uv0);
+        float height = c.r;
+        if(height < time)
+        {
+            discard;
+        }
+        if(height < time+0.04)
+        {
+            // 溶解颜色，可以自定义
+            c = vec4(color.rgb,c.a);
+        }
+        // 导出颜色
+        gl_FragColor = c;
+    }
+}

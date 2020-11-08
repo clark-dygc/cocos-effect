@@ -1,0 +1,25 @@
+{
+  "__type__": "cc.Material",
+  "_name": "",
+  "_objFlags": 0,
+  "_native": "",
+  "_effectAsset": {
+    "__uuid__": "c5156f16-d650-49db-a750-e9bd6ed04e46"
+  },
+  "_defines": {},
+  "_props": {
+    "color": {
+      "__type__": "cc.Color",
+      "r": 0,
+      "g": 255,
+      "b": 0,
+      "a": 255
+    },
+    "iResolution": {
+      "__type__": "cc.Vec3",
+      "x": 1280,
+      "y": 720,
+      "z": 0
+    }
+  }
+}

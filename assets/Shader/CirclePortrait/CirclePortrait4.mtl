@@ -1,0 +1,35 @@
+{
+  "__type__": "cc.Material",
+  "_name": "",
+  "_objFlags": 0,
+  "_native": "",
+  "_effectAsset": {
+    "__uuid__": "56a36c9e-2dca-49f1-b785-5844fd98a285"
+  },
+  "_defines": {
+    "IS_Edge_Blur": true,
+    "IS_EdgeGlowing": true,
+    "USE_EDGE_COLOR": true,
+    "USER_TEXTURE_COLOR": true
+  },
+  "_props": {
+    "texture": null,
+    "u_edge": 0.5,
+    "u_offset": 0.1,
+    "edge_blur": 1,
+    "color0": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "edge_color0": {
+      "__type__": "cc.Color",
+      "r": 0,
+      "g": 255,
+      "b": 0,
+      "a": 100
+    }
+  }
+}
